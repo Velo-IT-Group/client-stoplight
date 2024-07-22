@@ -1,0 +1,28 @@
+modules:
+  macro:
+    - key: client-stoplight-hello-world-macro
+      resource: main
+      render: native
+      resolver:
+        function: resolver
+      title: client-stoplight
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+app:
+  runtime:
+    name: nodejs18.x
+  id: ari:cloud:ecosystem::app/3fa6cafc-d214-4916-828f-85af7c4dad11
+permissions:
+  scopes:
+    - read:confluence-props
+    - write:confluence-props
+    - read:confluence-content.summary
+    - read:page:confluence
+  external:
+    fetch:
+      backend:
+        - https://manage.velomethod.com
